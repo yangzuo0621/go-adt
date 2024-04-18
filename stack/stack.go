@@ -54,7 +54,7 @@ func (s *stack[T]) Peek() T {
 	return s.items[len(s.items)-1]
 }
 
-// Len returns the number of items in the stack.
-func (s *stack[T]) Len() int {
+// Size returns the number of items in the stack.
+func (s *stack[T]) Size() int {
 	return len(s.items)
 }

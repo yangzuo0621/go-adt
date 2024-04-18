@@ -56,18 +56,18 @@ func TestStack(t *testing.T) {
 
 	t.Run("Len", func(t *testing.T) {
 		s := New[int]()
-		assert.Equal(t, 0, s.Len(), "expected length to be 0")
+		assert.Equal(t, 0, s.Size(), "expected length to be 0")
 
 		s.Push(1)
-		assert.Equal(t, 1, s.Len(), "expected length to be 1")
+		assert.Equal(t, 1, s.Size(), "expected length to be 1")
 
 		s.Push(2)
-		assert.Equal(t, 2, s.Len(), "expected length to be 2")
+		assert.Equal(t, 2, s.Size(), "expected length to be 2")
 
 		_ = s.Pop()
-		assert.Equal(t, 1, s.Len(), "expected length to be 1")
+		assert.Equal(t, 1, s.Size(), "expected length to be 1")
 
 		_ = s.Pop()
-		assert.Equal(t, 0, s.Len(), "expected length to be 0")
+		assert.Equal(t, 0, s.Size(), "expected length to be 0")
 	})
 }

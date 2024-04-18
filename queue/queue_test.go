@@ -60,12 +60,12 @@ func TestQueue(t *testing.T) {
 
 	t.Run("Len", func(t *testing.T) {
 		q := New[int]()
-		assert.Equal(t, 0, q.Len(), "expected length to be 0")
+		assert.Equal(t, 0, q.Size(), "expected length to be 0")
 
 		q.Enqueue(1)
-		assert.Equal(t, 1, q.Len(), "expected length to be 1")
+		assert.Equal(t, 1, q.Size(), "expected length to be 1")
 
 		_ = q.Dequeue()
-		assert.Equal(t, 0, q.Len(), "expected length to be 0")
+		assert.Equal(t, 0, q.Size(), "expected length to be 0")
 	})
 }

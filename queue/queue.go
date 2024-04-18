@@ -62,7 +62,7 @@ func (q *queue[T]) Peek() T {
 	return q.items[0]
 }
 
-// Len returns the number of items in the queue.
-func (q *queue[T]) Len() int {
+// Size returns the number of items in the queue.
+func (q *queue[T]) Size() int {
 	return len(q.items)
 }
