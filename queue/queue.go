@@ -13,7 +13,8 @@ func WithCapacity[T any](capacity int) Option[T] {
 // WithInitialItems sets the initial items of the queue.
 func WithInitialItems[T any](items []T) Option[T] {
 	return func(q *queue[T]) {
-		q.items = items
+		q.items = make([]T, len(items))
+		copy(q.items, items)
 	}
 }
 
