@@ -51,3 +51,17 @@ func (q *queue[T]) Dequeue() T {
 	q.items = q.items[1:]
 	return item
 }
+
+// Peek returns the first item from the queue without removing it.
+func (q *queue[T]) Peek() T {
+	var item T
+	if q.IsEmpty() {
+		return item
+	}
+	return q.items[0]
+}
+
+// Len returns the number of items in the queue.
+func (q *queue[T]) Len() int {
+	return len(q.items)
+}

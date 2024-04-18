@@ -46,4 +46,26 @@ func TestQueue(t *testing.T) {
 		assert.Equal(t, 3, q.Dequeue(), "expected item to be 3")
 		assert.Equal(t, 0, len(q.items), "expected length to be 0")
 	})
+
+	t.Run("Peek", func(t *testing.T) {
+		q := New[int](WithInitialItems[int]([]int{1, 2, 3}))
+		assert.Equal(t, 1, q.Peek(), "expected item to be 1")
+		assert.Equal(t, 1, q.Dequeue(), "expected item to be 1")
+		assert.Equal(t, 2, q.Peek(), "expected item to be 2")
+		assert.Equal(t, 2, q.Dequeue(), "expected item to be 2")
+		assert.Equal(t, 3, q.Peek(), "expected item to be 3")
+		assert.Equal(t, 3, q.Dequeue(), "expected item to be 3")
+		assert.Equal(t, 0, len(q.items), "expected length to be 0")
+	})
+
+	t.Run("Len", func(t *testing.T) {
+		q := New[int]()
+		assert.Equal(t, 0, q.Len(), "expected length to be 0")
+
+		q.Enqueue(1)
+		assert.Equal(t, 1, q.Len(), "expected length to be 1")
+
+		_ = q.Dequeue()
+		assert.Equal(t, 0, q.Len(), "expected length to be 0")
+	})
 }
